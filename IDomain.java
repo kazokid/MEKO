@@ -1,7 +1,7 @@
-public interface IDomain {
+public interface IDomain extends Iterable<DomainElement> {
     int getCardinality();
-    IDomain getComponent();
+    IDomain getComponent(int index);
     int getNumberOfComponents();
-    int indexOfElement();
-    IDomain elementForIndex();
+    int indexOfElement(DomainElement element);
+    DomainElement elementForIndex(int index);
 }

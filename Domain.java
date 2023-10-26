@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class Domain implements IDomain {
 
     public Domain() {
@@ -7,13 +9,17 @@ public class Domain implements IDomain {
         return new SimpleDomain(start, end);
     }
 
+    public static Domain combine(IDomain first, IDomain second) {
+        return new CompositeDomain(first, second);
+    }
+
     @Override
     public int getCardinality() {
         return 0;
     }
 
     @Override
-    public IDomain getComponent() {
+    public IDomain getComponent(int index) {
         return null;
     }
 
@@ -23,12 +29,29 @@ public class Domain implements IDomain {
     }
 
     @Override
-    public int indexOfElement() {
-        return 0;
+    public int indexOfElement(DomainElement element) {
+        int counter = 0;
+        for (DomainElement e : this) {
+            if (element.equals(e)) {
+                return counter;
+            }
+            counter++;
+        }
+        return -1;
     }
 
     @Override
-    public IDomain elementForIndex() {
+    public DomainElement elementForIndex(int index) {
+        for (DomainElement element : this) {
+            if (this.indexOfElement(element) == index) {
+                return element;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Iterator<DomainElement> iterator() {
         return null;
     }
 }
