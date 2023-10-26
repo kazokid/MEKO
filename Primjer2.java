@@ -1,4 +1,5 @@
 public class Primjer2 {
+
     public static void main(String[] args) {
 
         IDomain d = Domain.intRange(0, 11);

@@ -1,7 +1,7 @@
 public class CalculatedFuzzySet implements IFuzzySet{
 
-    private IIntUnaryFunction function;
-    private IDomain domain;
+    private final IIntUnaryFunction function;
+    private final IDomain domain;
 
     public CalculatedFuzzySet(IDomain domain, IIntUnaryFunction function) {
         this.domain = domain;
