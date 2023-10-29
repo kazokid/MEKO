@@ -1,3 +1,7 @@
+package sets;
+
+import operations.IIntUnaryFunction;
+
 public abstract class StandardFuzzySets {
 
     public static IIntUnaryFunction lFunction(int alpha, int beta) {

@@ -1,5 +1,8 @@
+package utils;
+
 import domains.DomainElement;
 import domains.IDomain;
+import sets.IFuzzySet;
 
 public class Debug {
     public static void print(IDomain domain, String headerText) {
@@ -16,6 +19,7 @@ public class Debug {
     }
 
     public static void print (IFuzzySet set, String headerText) {
+        // TODO popravi printanje double, da se ne printa 0.9999999999999999 i da printa na odreden broj decimala
         if (headerText != null) {
             System.out.println(headerText);
         }

@@ -1,3 +1,5 @@
+import utils.Debug;
+
 public class Domene {
      public static void main(String[] args) {
           domains.IDomain d1 = domains.Domain.intRange(3, 5); // {3,4}
@@ -19,24 +21,24 @@ public class Domene {
 
 //          IDomain d = Domain.intRange(2, 11);
 //
-//          IFuzzySet set1 = new MutableFuzzySet(d)
+//          sets.IFuzzySet set1 = new sets.MutableFuzzySet(d)
 //                  .set(DomainElement.of(0), 1.0)
 //                  .set(DomainElement.of(1), 0.8)
 //                  .set(DomainElement.of(2), 0.6)
 //                  .set(DomainElement.of(3), 0.4)
 //                  .set(DomainElement.of(4), 0.2);
 //
-//          Debug.print(set1, "Set1:");
+//          utils.Debug.print(set1, "Set1:");
 //
 //          IDomain d2 = Domain.intRange(-5, 6); // {-5,-4,...,4,5}
-//          IFuzzySet set2 = new CalculatedFuzzySet(d2, StandardFuzzySets.lambdaFunction(
+//          sets.IFuzzySet set2 = new sets.CalculatedFuzzySet(d2, sets.StandardFuzzySets.lambdaFunction(
 //                  d2.indexOfElement(DomainElement.of(-4)),
 //                  d2.indexOfElement(DomainElement.of( 0)),
 //                  d2.indexOfElement(DomainElement.of( 4)
 //                  )
 //          ));
 //
-//          Debug.print(set2, "Set2:");
+//          utils.Debug.print(set2, "Set2:");
      }
 }
 

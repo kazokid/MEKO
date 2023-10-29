@@ -1,4 +1,8 @@
+package operations;
+
 import domains.IDomain;
+import sets.CalculatedFuzzySet;
+import sets.IFuzzySet;
 
 public abstract class Operations {
 

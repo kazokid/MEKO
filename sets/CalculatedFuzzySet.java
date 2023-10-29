@@ -1,5 +1,8 @@
+package sets;
+
 import domains.DomainElement;
 import domains.IDomain;
+import operations.IIntUnaryFunction;
 
 public class CalculatedFuzzySet implements IFuzzySet{
 

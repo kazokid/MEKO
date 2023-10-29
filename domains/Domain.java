@@ -4,9 +4,6 @@ import java.util.Iterator;
 
 public class Domain implements IDomain {
 
-    public Domain() {
-    }
-
     public static IDomain intRange(int start, int end) {
         return new SimpleDomain(start, end);
     }

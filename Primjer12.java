@@ -1,6 +1,10 @@
 import domains.Domain;
 import domains.DomainElement;
 import domains.IDomain;
+import operations.Operations;
+import sets.IFuzzySet;
+import sets.MutableFuzzySet;
+import utils.Debug;
 
 public class Primjer12 {
 

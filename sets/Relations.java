@@ -1,6 +1,10 @@
+package sets;
+
 import domains.Domain;
 import domains.DomainElement;
 import domains.IDomain;
+import sets.IFuzzySet;
+import sets.MutableFuzzySet;
 
 public class Relations {
 
@@ -66,7 +70,7 @@ public class Relations {
         IDomain domain1 = r1.getDomain();
         IDomain domain2 = r2.getDomain();
         if (domain1.getNumberOfComponents() != 2 || domain2.getNumberOfComponents() != 2) {
-            throw new IllegalArgumentException("Relations are not defined on UxV");
+            throw new IllegalArgumentException("sets.Relations are not defined on UxV");
         }
         if (!domain1.getComponent(1).equals(domain2.getComponent(0))) {
             throw new IllegalArgumentException("Incompatible domains of given relations");
@@ -89,5 +93,9 @@ public class Relations {
             composition.set(element, value);
         }
         return composition;
+    }
+
+    public static boolean isFuzzyEquivalence(IFuzzySet relation) {
+        return isReflexive(relation) && isSymmetric(relation) && isMaxMinTransitive(relation);
     }
 }
