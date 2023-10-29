@@ -1,3 +1,5 @@
+import domains.IDomain;
+
 public abstract class Operations {
 
     public static IFuzzySet unaryOperation(IFuzzySet set, IUnaryFunction function) {

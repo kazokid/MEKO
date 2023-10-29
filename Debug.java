@@ -1,3 +1,6 @@
+import domains.DomainElement;
+import domains.IDomain;
+
 public class Debug {
     public static void print(IDomain domain, String headerText) {
         if (headerText != null) {

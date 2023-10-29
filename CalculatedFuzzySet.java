@@ -1,3 +1,6 @@
+import domains.DomainElement;
+import domains.IDomain;
+
 public class CalculatedFuzzySet implements IFuzzySet{
 
     private final IIntUnaryFunction function;

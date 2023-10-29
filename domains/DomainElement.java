@@ -1,3 +1,5 @@
+package domains;
+
 import java.util.Arrays;
 
 public class DomainElement {
@@ -58,5 +60,13 @@ public class DomainElement {
     @Override
     public int hashCode() {
         return Arrays.hashCode(values);
+    }
+
+    public DomainElement swap() {
+        int[] newValues = new int[values.length];
+        for (int i = 0; i < values.length; i++) {
+            newValues[i] = values[values.length - 1 - i];
+        }
+        return new DomainElement(newValues);
     }
 }

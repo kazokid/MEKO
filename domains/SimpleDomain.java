@@ -1,3 +1,5 @@
+package domains;
+
 import java.util.Iterator;
 
 public class SimpleDomain extends Domain {
@@ -19,7 +21,7 @@ public class SimpleDomain extends Domain {
         return 1;
     }
 
-    public IDomain getComponent(int index) {
+    public SimpleDomain getComponent(int index) {
         return this;
     }
 

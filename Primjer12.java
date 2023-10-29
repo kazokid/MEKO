@@ -1,4 +1,8 @@
-public class Primjer2 {
+import domains.Domain;
+import domains.DomainElement;
+import domains.IDomain;
+
+public class Primjer12 {
 
     public static void main(String[] args) {
 

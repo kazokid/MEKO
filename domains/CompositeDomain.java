@@ -1,13 +1,18 @@
+package domains;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CompositeDomain extends Domain {
 
-    private final ArrayList<IDomain> domainComponents = new ArrayList<>();
+    private final ArrayList<SimpleDomain> domainComponents = new ArrayList<>();
 
-    public CompositeDomain(IDomain first, IDomain second) {
-        domainComponents.add(first);
-        domainComponents.add(second);
+    public CompositeDomain(IDomain... domains) {
+        for (IDomain domain : domains) {
+            for (int i = 0; i < domain.getNumberOfComponents(); i++) {
+                domainComponents.add(domain.getComponent(i));
+            }
+        }
     }
 
     public int getCardinality() {
@@ -18,7 +23,7 @@ public class CompositeDomain extends Domain {
         return cardinality;
     }
     @Override
-    public IDomain getComponent(int index) {
+    public SimpleDomain getComponent(int index) {
         return domainComponents.get(index);
     }
 
@@ -26,9 +31,6 @@ public class CompositeDomain extends Domain {
     public int getNumberOfComponents() {
         return domainComponents.size();
     }
-
-//    we want to be able to iterate through all elements of the composite domain
-//    we need to implement the iterator method
 
     @Override
     public Iterator<DomainElement> iterator() {
@@ -47,9 +49,9 @@ public class CompositeDomain extends Domain {
                 int[] values = new int[numberOfComponents];
                 int currentElementIndexCopy = currentElementIndex;
                 for (int i = numberOfComponents - 1; i >= 0; i--) {
-                    IDomain component = getComponent(i);
+                    SimpleDomain component = getComponent(i);
                     int componentCardinality = component.getCardinality();
-                    values[i] = currentElementIndexCopy % componentCardinality;
+                    values[i] = currentElementIndexCopy % componentCardinality + component.getFirst();
                     currentElementIndexCopy /= componentCardinality;
                 }
                 currentElementIndex++;

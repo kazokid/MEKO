@@ -1,3 +1,5 @@
+package domains;
+
 import java.util.Iterator;
 
 public class Domain implements IDomain {
@@ -19,7 +21,7 @@ public class Domain implements IDomain {
     }
 
     @Override
-    public IDomain getComponent(int index) {
+    public SimpleDomain getComponent(int index) {
         return null;
     }
 
@@ -37,7 +39,7 @@ public class Domain implements IDomain {
             }
             counter++;
         }
-        return -1;
+        throw new IllegalArgumentException("Element not in domain");
     }
 
     @Override
@@ -52,6 +54,37 @@ public class Domain implements IDomain {
 
     @Override
     public Iterator<DomainElement> iterator() {
+        // todo is this a problem?
+
         return null;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO kako znamo jesu li domene jednake, je li bitan i poredak elemenata, tj jel axb = bxa
+
+        if (!(object instanceof IDomain other)) {
+            return false;
+        }
+
+        if (this.getNumberOfComponents() != other.getNumberOfComponents()) {
+            return false;
+        }
+
+        for (int i = 0; i < this.getNumberOfComponents(); i++) {
+            IDomain otherComponent = other.getComponent(i);
+            IDomain thisComponent = this.getComponent(i);
+
+            if (otherComponent.getCardinality() != thisComponent.getCardinality()) {
+                return false;
+            }
+
+            for (int j = 0; j < thisComponent.getCardinality(); j++) {
+                if (!thisComponent.elementForIndex(j).equals(otherComponent.elementForIndex(j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

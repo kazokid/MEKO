@@ -1,3 +1,6 @@
+import domains.DomainElement;
+import domains.IDomain;
+
 public class MutableFuzzySet implements IFuzzySet{
     private double[] memberships;
 
