@@ -1,16 +1,15 @@
 import domains.Domain;
 import domains.DomainElement;
 import domains.IDomain;
-import operations.Operations;
+import sets.CalculatedFuzzySet;
 import sets.IFuzzySet;
 import sets.MutableFuzzySet;
+import sets.StandardFuzzySets;
 import utils.Debug;
 
 public class Primjer12 {
-
     public static void main(String[] args) {
-
-        IDomain d = Domain.intRange(0, 11);
+        IDomain d = Domain.intRange(0, 11); // {0,1,...,10}
         IFuzzySet set1 = new MutableFuzzySet(d)
                 .set(DomainElement.of(0), 1.0)
                 .set(DomainElement.of(1), 0.8)
@@ -18,16 +17,15 @@ public class Primjer12 {
                 .set(DomainElement.of(3), 0.4)
                 .set(DomainElement.of(4), 0.2);
         Debug.print(set1, "Set1:");
-
-        IFuzzySet notSet1 = Operations.unaryOperation( set1, Operations.zadehNot());
-        Debug.print(notSet1, "notSet1:");
-
-        IFuzzySet union = Operations.binaryOperation(
-                set1, notSet1, Operations.zadehOr());
-        Debug.print(union, "Set1 union notSet1:");
-
-        IFuzzySet hinters = Operations.binaryOperation(
-                set1, notSet1, Operations.hamacherTNorm(1.0));
-        Debug.print(hinters, "Set1 intersection with notSet1 using parameterised Hamacher T norm with parameter 1.0:");
+        IDomain d2 = Domain.intRange(-5, 6); // {-5,-4,...,4,5}
+        IFuzzySet set2 = new CalculatedFuzzySet(
+                d2,
+                StandardFuzzySets.lambdaFunction(
+                        d2.indexOfElement(DomainElement.of(-4)),
+                        d2.indexOfElement(DomainElement.of( 0)),
+                        d2.indexOfElement(DomainElement.of( 4))
+                )
+        );
+        Debug.print(set2, "Set2:");
     }
 }

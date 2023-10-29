@@ -1,8 +1,6 @@
 package domains;
 
-import java.util.Iterator;
-
-public class Domain implements IDomain {
+public abstract class Domain implements IDomain {
 
     public static IDomain intRange(int start, int end) {
         return new SimpleDomain(start, end);
@@ -50,15 +48,7 @@ public class Domain implements IDomain {
     }
 
     @Override
-    public Iterator<DomainElement> iterator() {
-        // todo is this a problem?
-
-        return null;
-    }
-
-    @Override
     public boolean equals(Object object) {
-        // TODO kako znamo jesu li domene jednake, je li bitan i poredak elemenata, tj jel axb = bxa
 
         if (!(object instanceof IDomain other)) {
             return false;

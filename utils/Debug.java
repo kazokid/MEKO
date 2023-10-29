@@ -19,13 +19,12 @@ public class Debug {
     }
 
     public static void print (IFuzzySet set, String headerText) {
-        // TODO popravi printanje double, da se ne printa 0.9999999999999999 i da printa na odreden broj decimala
         if (headerText != null) {
             System.out.println(headerText);
         }
 
         for (DomainElement e : set.getDomain()) {
-            System.out.println("d(" + e + ")=" + set.getValueAt(e));
+            System.out.printf("d%s = %1.6f\n",e, set.getValueAt(e));
         }
 
         System.out.println();
