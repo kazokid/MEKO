@@ -39,6 +39,10 @@ public abstract class Operations {
         return (x, y) -> (x + y - (2 - v) * x * y) / (1 - (1 - v) * x * y);
     }
 
+    public static IBinaryFunction product() {
+        return (x, y) -> x * y;
+    }
+
 
 
 }
