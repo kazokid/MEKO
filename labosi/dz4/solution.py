@@ -162,21 +162,21 @@ def main():
 
     train_data, train_targets = load_data(args.train)
 
-    # --train /Users/kazokid/Documents/fer/diplomski/1SEM/MEKO/dz4/zad4-dataset1.txt --popsize 250 --p 0.05 --elitism 5 --K 1 --iter 1000
-    # bestIndividual1 = genetic_algorithm(train_data, train_targets, args.popsize,
-    #                                    args.elitism, args.p,
-    #                                    args.K, args.iter)
+    # --train /Users/kazokid/Documents/fer/diplomski/1SEM/MEKO/labosi/labosi/dz4/zad4-dataset1.txt --popsize 250 --p 0.05 --elitism 5 --K 1 --iter 1000
+    bestIndividual1 = genetic_algorithm(train_data, train_targets, args.popsize,
+                                       args.elitism, args.p,
+                                       args.K, args.iter)
 
-    # --train /Users/kazokid/Documents/fer/diplomski/1SEM/MEKO/dz4/zad4-dataset1.txt --popsize 200 --p 0.1 --elitism 5 --K 1 --iter 3000 --tournament
-    bestIndividual2 = genetic_algorithm_tournament(train_data, train_targets, args.popsize,
-                                                   args.p,
-                                                   args.K, args.iter)
+    # --train /Users/kazokid/Documents/fer/diplomski/1SEM/MEKO/labosi/labosi/dz4/zad4-dataset1.txt --popsize 200 --p 0.1 --elitism 5 --K 1 --iter 3000 --tournament
+    # bestIndividual2 = genetic_algorithm_tournament(train_data, train_targets, args.popsize,
+    #                                                args.p,
+    #                                                args.K, args.iter)
 
-    # print("Best individual (generation): ", bestIndividual1.values, sep='')
-    # print("[Train error]: ", 1 / bestIndividual1.fitness, sep='')
+    print("Best individual (generation): ", bestIndividual1.values, sep='')
+    print("[Train error]: ", 1 / bestIndividual1.fitness, sep='')
 
-    print("Best individual (tournament): ", bestIndividual2.values, sep='')
-    print("[Train error]: ", 1 / bestIndividual2.fitness, sep='')
+    # print("Best individual (tournament): ", bestIndividual2.values, sep='')
+    # print("[Train error]: ", 1 / bestIndividual2.fitness, sep='')
 
 
 if __name__ == "__main__":
